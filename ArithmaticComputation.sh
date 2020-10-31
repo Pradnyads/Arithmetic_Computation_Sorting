@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+declare -i result
+
 read -p "enter a b c : " a b c
 
 s1=$(($a+($b*$c)));
