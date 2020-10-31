@@ -18,3 +18,10 @@ s4=$((`expr $a%$b+$c`));
 
 echo " s4 - " $s4
 
+temp=0
+result[((temp++))]="$s1"
+result[((temp++))]="$s2"
+result[((temp++))]="$s3"
+result[((temp))]="$s4"
+
+echo "dictionary -" ${result[@]}
