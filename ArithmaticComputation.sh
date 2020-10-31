@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+declare -i result
+
 read -p "enter a b c : " a b c
 
 s1=$(($a+($b*$c)));
@@ -25,3 +27,5 @@ result[((temp++))]="$s3"
 result[((temp))]="$s4"
 
 echo "dictionary -" ${result[@]}
+echo "dictionary -" ${!result[@]}
+echo "Result in array "${result[@]}
