@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
 declare -i result
+declare -i arr
 
 read -p "enter a b c : " a b c
 
@@ -33,7 +34,6 @@ echo "Result in array "${result[@]}
 echo "dictionary -" ${!result[@]}
 echo "Result in array "${result[@]}
 
-
 for ((i = 0; i<4; i++)) 
 do
 
@@ -51,3 +51,30 @@ done
 
 echo "Array in descending order :"
 echo ${result[*]}
+
+temp=0
+arr[((temp++))]="$s1"
+arr[((temp++))]="$s2"
+arr[((temp++))]="$s3"
+arr[((temp))]="$s4"
+
+echo "dictionary -" ${!arr[@]}
+echo "Result in array "${arr[@]}
+
+for ((i = 0; i<4; i++)) 
+do
+
+    for((j = 0; j<4-i-1; j++)) 
+    do
+
+        if [ ${arr[j]} -lt ${arr[$((j+1))]} ] 
+        then 
+            temp=${arr[j]} 
+            arr[$j]=${arr[$((j+1))]}   
+            arr[$((j+1))]=$temp 
+        fi
+    done
+done
+  
+echo "Array in descending order :"
+echo ${arr[*]} 
